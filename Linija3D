@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ispit1
+{
+    class Linija3D
+    {
+        private Točka3D t1;
+        private Točka3D t2;
+
+
+        public Linija3D(Točka3D _t1, Točka3D _t2)
+        {
+            t1 = _t1;
+            t2 = _t2;
+        }
+        public Linija3D(double _a1, double _a2, double _a3, double _a4)
+        {
+            double a1 = _a1;
+            double a2 = _a2;
+            double a3 = _a3;
+            double a4 = _a4;
+        }
+        public bool Equals(Linija3D other)
+        {
+            bool jednako = false;
+            if (t1 == other.t1 && t2 == other.t2)
+            {
+                jednako = true;
+            }
+            return jednako;
+        }
+        public override string ToString()
+        {
+            return "Linija Tocka1" + a1() + "Linija tocka1" + a2() + "Linija tocka2" + a3() + "Linija tocka2" + ;
+        }
+    }
+}
+

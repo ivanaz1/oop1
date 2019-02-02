@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication7
+{
+    class Spremnik
+    {
+        private string naziv;
+        protected double kapacitet;
+        protected double popunjenost;
+
+        public string Naziv
+        {
+            get
+            {
+                return naziv;
+            }
+            set
+            {
+                naziv = value;
+            }
+        }
+        public Spremnik()
+        {
+            kapacitet = 3;
+            popunjenost = 0;
+        }
+       public void dodaj (int komada)
+        {
+            if((popunjenost + komada ) > kapacitet)
+            {
+                System.ArgumentException Spremnnikjepun = new System.ArgumentException("Spremink je pun");
+                throw Spremnnikjepun;
+                    
+            }
+            else
+            {
+                if(komada <1 || komada > 3)
+                {
+                    System.ArgumentException brojKomada = new System.ArgumentException("Dodaje se previše ili premalo komada");
+                    throw brojKomada;
+                }
+                else
+                {
+                    popunjenost += komada;
+                }
+               
+            }
+           
+        }
+        public void Isprazni(int komada)
+        {
+            if ((popunjenost - komada) < 0)
+            {
+                System.ArgumentException prazanSpremnik = new System.ArgumentException("Spremnik je prazan");
+                throw prazanSpremnik;
+                    
+            }
+            else
+            {
+                if(komada <1||komada > 3)
+                {
+                    System.ArgumentException brojKomadaPražnjenja = new System.ArgumentException("Prazni se previše ili premalo komada");
+                    throw brojKomadaPražnjenja;
+
+                }
+                else
+                {
+                    popunjenost -= komada;
+                }
+                
+            }
+            
+        }
+        public override string ToString()
+        {
+            string podataka = "Spremnik naziv:" + naziv + "Kapacitet" + kapacitet + "Popunjenost" + popunjenost;
+            return podataka;
+        }
+
+
+
+    }
+   }  

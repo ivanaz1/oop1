@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ispit1
+{
+    class Tocka3D
+    {
+        private float x;
+        private float y;
+        private float z;
+
+
+
+        public Tocka3D(float _x, float _y, float _z)
+        {
+            x = _x;
+            y = _y;
+            z = _z;
+
+        }
+        public float X
+        {
+            get
+            {
+                return x;
+            }
+            set
+            {
+                x = value;
+            }
+        }
+
+        public float Y
+        {
+            get
+            {
+                return y;
+            }
+            set
+            {
+                y = value;
+            }
+        }
+        public float Z
+        {
+            get
+            {
+                return z;
+            }
+            set
+            {
+                z = value;
+            }
+        }
+        private float udaljenost(float _x, float _y, float _z)
+        {
+            float x2 = _x - x;
+            float y2 = _y - y;
+            float z2 = _z - z;
+
+            return (float)(Math.Sqrt(x2 * x2) + (y2 * y2) + (z2 * z2));
+        }
+        public float UdaljenostDO(Tocka3D t)
+        {
+            float x2 = t.X - x;
+            float y2 = t.Y - y;
+            float z2 = t.Z - z;
+
+            return (float)(Math.Sqrt(x2 * x2) + (y2 * y2) + (z2 * z2));
+        }
+        public void PomakniNA(float _x, float _y, float _z)
+        {
+            x = _x;
+            y = _y;
+            z = _z;
+        }
+        public void PomakniZa(float _x, float _y, float _z)
+        {
+            x += _x;
+            y += _y;
+            z += _z;
+
+
+        }
+
+        public bool Equals(Tocka3D other)
+        {
+            bool jednako = false;
+            if (x == other.x && y == other.y && z == other.z)
+            {
+                jednako = true;
+            }
+            return jednako;
+        }
+        public override string ToString()
+        {
+            return "X=" + X + "Y=" + Y + "Z" + Z;
+        }
+
+
+    }
+}
+
